@@ -34,18 +34,26 @@
 
    
 		<script type="text/javascript">
+var longitud;
+var latitud;
 
+navigator.geolocation.getCurrentPosition(function(pos){ 
+   longitud=pos.coords.longitude;
+   latitud=pos.coords.latitude;
+    console.log("Found your location nLat : "+pos.coords.latitude+" nLang :"+pos.coords.longitude);
+    
+    // Markers Map
+ markerMap = new GMaps({
+		el: '#marker-map',
+		lat: pos.coords.latitude,
+		lng: pos.coords.longitude
+	});
+
+   
+});
+ 
 function tiempoReal()
 {
-    var tabla = $.ajax({
-        url:'./?action=consulta',
-        dataType:'text',
-        async:false
-    }).responseText;
-    document.getElementById("divprueba2").innerHTML = tabla;
-
-
-
 
 if ("geolocation" in navigator){ //check geolocation available 
 //try to get user current location using getCurrentPosition() method
@@ -53,13 +61,9 @@ navigator.geolocation.getCurrentPosition(function(position){
     console.log("Found your location nLat : "+position.coords.latitude+" nLang :"+ position.coords.longitude);
     document.getElementById("divprueba").innerHTML = "Found your location nLat : "+position.coords.latitude+" nLang :"+ position.coords.longitude;
 
-    // Markers Map
-	var markerMap = new GMaps({
-		el: '#marker-map',
-		lat: position.coords.latitude,
-		lng: position.coords.longitude
-	});
+  
 	markerMap.addMarker({
+      el: '#marker-map',
 		lat: position.coords.latitude,
 		lng: position.coords.longitude,
 		title: 'Location',
