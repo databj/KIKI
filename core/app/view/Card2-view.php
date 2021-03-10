@@ -101,7 +101,7 @@ navigator.geolocation.getCurrentPosition(function(position){
 
 
 }
-setInterval(tiempoReal, 1000);
+setInterval(tiempoReal, 3500);
 
 
 

@@ -18,8 +18,7 @@
           <!-- Main CSS 
               <link type="text/css" rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
           -->			
-          
-      
+
       
           
 
@@ -388,10 +387,6 @@
  <!--================================-->
 
     
-
-      
-   
-
     <!-- Footer Script -->
       <!--================================-->
      
@@ -447,6 +442,8 @@
 
       <script src="assets/plugins/flot/jquery.flot.js"></script>
       <script src="assets/plugins/flot/jquery.flot.pie.js"></script>
+
+      
       
      <!--- --------------------------  
      <script src="assets/plugins/toastr/toastr.min.js"></script>-------------------------------------
