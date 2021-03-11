@@ -108,7 +108,7 @@ $(document).ready(function(){
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6LLaX_9TI"></script>
+
   </body>
 </html>
 
@@ -122,10 +122,9 @@ function initMap() {
   const directionsRenderer = new google.maps.DirectionsRenderer();
 
   
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 17,
-    center: { lat: 10.325196799999999, lng: -75.4843648 },
-  });
+  
+
+  
 
 function prueba(){
   navigator.geolocation.getCurrentPosition(function(position){ 
@@ -136,9 +135,14 @@ var parametros = {
             "lon" : position.coords.longitude
     };
 
+    const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: { lat: position.coords.latitude, lng: position.coords.longitude },
+  });
+
 
   new google.maps.Marker({
-    position:  { lat: 10.325196799999999, lng: -75.4843648 },
+    position:  { lat: position.coords.latitude, lng: position.coords.longitude },
     map,
     
   });

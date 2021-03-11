@@ -90,7 +90,6 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 
@@ -503,7 +502,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6
       <script src="assets/plugins/simpler-sidebar/jquery.simpler-sidebar.min.js"></script>	   
       
      
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
       <!-- Material Dashboard DEMO methods, don't include it in your project! -->
       <script src="assets/js/demo.js"></script>
 
