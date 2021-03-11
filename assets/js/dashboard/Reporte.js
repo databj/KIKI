@@ -150,7 +150,7 @@ datasets:[
                                 beginAtZero:true,
                                 fontSize:12,
                                 fontFamily:"IBM Plex Sans, sans-serif",
-                                fontColor:"#8392a5",max:80}}],
+                                fontColor:"#8392a5",max:120}}],
                         xAxes:[
                             {
                                 ticks:{

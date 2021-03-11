@@ -13,12 +13,13 @@
           <meta name="keyword" content="">
           <meta name="author"  content=""/>
           <!-- Page Title -->
-          <title>MCI - SERVICE</title>
+          <title>MCI - SERVICE </title>
 
           <!-- Main CSS 
               <link type="text/css" rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
           -->			
-
+          
+      
       
           
 
@@ -88,6 +89,124 @@
             </style>
 
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+
+    <style type="text/css">
+
+
+html, body {
+  height: 80%;
+  margin: 1000;
+  padding: 2000;
+}
+#map {
+  height: 100%;
+ 
+  width: 100%;
+  height: 100%;
+} 
+
+
+</style>   
+ 
+
+<script type="text/javascript">
+  /*
+function initMap() {
+  
+  
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: {lat: 10.4195841, lng: -75.5271224}  // Australia.
+  });
+
+  var directionsService = new google.maps.DirectionsService;
+  var directionsRenderer = new google.maps.DirectionsRenderer({
+    draggable: true,
+    map: map,
+    
+  });
+
+function prueba(){
+  navigator.geolocation.getCurrentPosition(function(position){ 
+
+    console.log("Found your location nLat : "+position.coords.latitude+" nLang :"+ position.coords.longitude);
+    const uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+    var parametros = {
+                "lat" : position.coords.latitude,
+                "lon" : position.coords.longitude
+        };
+
+        $.ajax({
+        url: './?action=consulta2' ,
+        type: 'post' ,
+        dataType: 'json',
+        data: parametros,
+            })
+
+
+
+
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+
+});
+}
+
+setInterval(prueba, 1000);
+
+  directionsRenderer.addListener('directions_changed', function() {
+    computeTotalDistance(directionsRenderer.getDirections());
+  });
+
+
+  document.getElementById('submit').addEventListener('click', function() {
+  displayRoute('start', 'end', directionsService,
+      directionsRenderer);
+ });
+
+}
+
+
+
+
+function computeTotalDistance(result) {
+  
+
+var total = 0;
+
+
+  var myroute = result.routes[0];
+
+  for (var i = 0; i < myroute.legs.length; i++) {
+
+    total += myroute.legs[i].distance.value;
+  }
+  total = total / 1000 ;
+
+
+
+
+
+ 
+
+
+
+}
+
+*/
+
+
+</script>
+
     </head>
 
 
@@ -139,10 +258,7 @@
                <div class="page-sidebar-menu">
                   <ul class="accordion-menu">
                  
-                     <li>
-                      <!---condicional para cualquier usuario diferente a empresa--->
-                       
-                    </li>
+                    
 
                    
                   </ul>
@@ -267,55 +383,37 @@
             <!--/ Page Header End -->
             <!--================================-->
             <!-- Page Inner Start -->
-            <!--================================-->
+            <!--============main wrap====================-->
          
            
-                                
-                                <!-- <div class="card-header">
-                                       <h4 class="card-header-title">
-                                       MCI SERVICE
-                                       </h4>
-                                          <div class="card-header-btn">
-                                             <a  href="#" data-toggle="collapse" class="btn card-collapse" data-target="#bj" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
-                                             <a href="#" data-toggle="refresh" class="btn card-refresh"><i class="ion-android-refresh"></i></a>
-                                             <a href="#" data-toggle="expand" class="btn card-expand"><i class="ion-android-expand"></i></a>
-                                             <a href="#" data-toggle="remove" class="btn card-remove"><i class="ion-android-close"></i></a>
-                                          </div>
-                                   </div>
-                                 -->
+                      <?php View::load("Home");?>
                                                            
-                                                                  <?php
-                                                                  if($clientes->rol!="EMPRESA"){
+                      <div id="map" center ></div>    
 
-                                                                  
-                                                                  View::load("Card");
-                                                                }else{
-                                                                  
-                                                                  session_start();
-                                                                  // ---
-                                                                  // la tarea de este archivo es eliminar todo rastro de cookie
-                                                                  
-                                                                  // -- eliminamos el usuario
-                                                                  if(isset($_SESSION['user_id'])){
-                                                                    unset($_SESSION['user_id']);
-                                                                  }
-                                                                  
-                                                                  session_destroy();
-                                                                  // v0 29 jul 2013
-                                                                  //estemos donde estemos nos redirije al index
-                                                                  print "<script>window.location='./';</script>";
-                                                                }
-                                                                
-                                                                  ?>
-
+                      
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6LLaX_9TI&callback=initMap">
+</script>                         
                                                              
                                                        
 
-            <!--/ Page Inner End -->		
+            <!--/ Page Inner End -->
+          		    <!-- Page Footer Start -->	
+            <!--================================
+            <footer class="page-footer">
+               <div class="pd-t-4 pd-b-0 pd-x-20">
+                  <div class="tx-10 tx-uppercase">
+                     <p class="pd-y-10 mb-0">Copyright&copy; 2021 | All rights reserved. | Created By <a href="#" target="_blank">D4T4 DEVS</a></p>
+                  </div>
+               </div>
+            </footer>-->
+            <!--/ Page Footer End -->		
          </div>
          <!--/ Page Content End -->
+         
       </div>
       <!--/ Page Container End -->
+      
 
 
 
@@ -360,7 +458,7 @@
                                        </div>
 
                                        <div class="form-group">
-                                          <label for="exampleInputPassword1">Password</label>
+                                          <label for="exampleInputPassword1">Contraseña</label>
                                           <input type="password" name="password" required="" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Password">
                                        </div>
 
@@ -387,6 +485,7 @@
  <!--================================-->
 
     
+
     <!-- Footer Script -->
       <!--================================-->
      
@@ -402,31 +501,41 @@
       <script src="assets/plugins/apex-chart/apexcharts.min.js"></script>
       <script src="assets/plugins/apex-chart/irregular-data-series.js"></script>
       <script src="assets/plugins/simpler-sidebar/jquery.simpler-sidebar.min.js"></script>	   
+      
+     
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+      <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+      <script src="assets/js/demo.js"></script>
 
-      <script src="assets/js/dashboard/Reporte.js"></script>
-      <script src="assets/js/dashboard/reporte2.js"></script>
-      <script src="assets/js/dashboard/Reporte3.js"></script>
-      <script src="assets/js/dashboard/Reporte4.js"></script>
-      <script src="assets/js/dashboard/Reporte5.js"></script>  
-      <script src="assets/js/dashboard/Reporte6.js"></script>    
-      <script src="assets/js/dashboard/ReporteEmpresa.js"></script>    
-      <script src="assets/js/dashboard/ReporteEmpresa2.js"></script>  
+      <script type="text/javascript">
+          $(document).ready(function(){
 
-      <script src="assets/js/dashboard/ReporteEmpresa3.js"></script>
-      <script src="assets/js/dashboard/ReporteEmpresa4.js"></script>
-     <!-- <script src="assets/js/dashboard/geoloc.js"></script>-->
+          // Javascript method's body can be found in assets/js/demos.js
+              demo.initDashboardPageCharts();
+
+          });
+      </script>
+    
+    
+     
+      
+
+     
+ 
       
       <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
       <script src="assets/js/jquery.slimscroll.min.js"></script>
       <script src="assets/js/highlight.min.js"></script>
       <script src="assets/js/app.js"></script>
       <script src="assets/js/custom.js"></script>   
-      <script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>    
+       
+  
+
       <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
       <script src="assets/plugins/datatables/responsive/dataTables.responsive.js"></script>
       <script src="assets/plugins/datatables/extensions/dataTables.jqueryui.min.js"></script>
       <script src="assets/plugins/moment/moment.min.js"></script>
-      <script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script> 
+    
       <script src="assets/plugins/modal/bootbox.js"></script>
       <script src="assets/plugins/modal/ui-modals.js"></script>
       <script src="assets/plugins/sweetalert/bootstrap-sweetalert.js"></script>
@@ -442,8 +551,6 @@
 
       <script src="assets/plugins/flot/jquery.flot.js"></script>
       <script src="assets/plugins/flot/jquery.flot.pie.js"></script>
-
-      
       
      <!--- --------------------------  
      <script src="assets/plugins/toastr/toastr.min.js"></script>-------------------------------------

@@ -44,7 +44,7 @@ if(!isset($_SESSION["user_id"])) {//SI SE CREA UNA INSTANCIA DE UNA SESION
 						
 						
 						}else{
-							print "<script>window.location='index.php?view=Card';</script>";
+							print "<script>window.location='index.php?view=Home';</script>";
 							
 						}
 						
@@ -59,14 +59,14 @@ if(!isset($_SESSION["user_id"])) {//SI SE CREA UNA INSTANCIA DE UNA SESION
 					<script>alert("USUARIO O CONTRASEÑA INCORRECTA");</script>
 					<?php
 				
-						print "<script>window.location='index.php?view=Card';</script>";
+						print "<script>window.location='index.php?view=Home';</script>";
 				
 
 				}
 
 }else{
 	
-		print "<script>window.location='index.php?view=Card';</script>";
+		print "<script>window.location='index.php?view=Home';</script>";
 	
 }
 ?>
