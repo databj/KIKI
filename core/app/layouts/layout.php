@@ -244,7 +244,7 @@ var total = 0;
          <!--================================-->
          <div class="page-sidebar">
                 <div class="logo">
-                  <a class="logo-img" href="index.php?view=<?php if($user->rol=="EMPRESA"){echo "Empresa/Reportes/indexlamina";}else{echo "Card";}?>">		
+                  <a class="logo-img" href="index.php?view=<?php if($user->rol=="EMPRESA"){echo "Empresa/Reportes/indexlamina";}else{echo "mapa";}?>">		
                   <img class="desktop-logo" src="assets/images/logo.png" alt="">
                   <img class="small-logo" src="assets/images/minovate-logo-color.png" alt="">
                   </a>			
@@ -320,7 +320,7 @@ var total = 0;
                   <!--================================-->
                   <div class="header-right pull-right">
                      <ul class="list-inline justify-content-end">
-                     <li class="list-inline-item align-middle"><a  href="index.php?view=Card" ><i class="icon ion-ios-home-outline tx-20"></i></a></li>
+                     <li class="list-inline-item align-middle"><a  href="index.php?view=mapa" ><i class="icon ion-ios-home-outline tx-20"></i></a></li>
          
                         <!--/ Languages Dropdown End -->
                         <!--================================-->
