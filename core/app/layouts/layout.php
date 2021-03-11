@@ -385,7 +385,7 @@ var total = 0;
             <!--============main wrap====================-->
          
            
-                      <?php View::load("Home");?>
+                      <?php View::load("mapa");?>
                                                            
                       <div id="map" center ></div>    
 
