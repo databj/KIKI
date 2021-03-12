@@ -13,7 +13,7 @@
           <meta name="keyword" content="">
           <meta name="author"  content=""/>
           <!-- Page Title -->
-          <title>MCI - SERVICE </title>
+          <title>KIKI - LOGISTICS </title>
 
           <!-- Main CSS 
               <link type="text/css" rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
