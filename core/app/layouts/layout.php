@@ -439,7 +439,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6
 
       <?php }else{
                         ?>
-                  <div style="background-image: url('img/categoria/fondo.jpg');">
+                  <div style="background-image: url('img/categoria/0.jpg');">
                         <div class="ht-100v d-flex">
                            <div class="card shadow-none pd-20 mx-auto wd-300 text-center bd-1 align-self-center">
                                <center> <img src="img/categoria/0.jpg" width="40%"></center>
