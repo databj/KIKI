@@ -124,7 +124,11 @@ function initMap() {
   
   
 
-  
+    const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: { lat: 10.3211953, lng: -75.49271639999999 },
+  });
+
 
 function prueba(){
   navigator.geolocation.getCurrentPosition(function(position){ 
@@ -135,19 +139,7 @@ var parametros = {
             "lon" : position.coords.longitude
     };
 
-    const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
-    center: { lat: position.coords.latitude, lng: position.coords.longitude },
-  });
-
-
-  new google.maps.Marker({
-    position:  { lat: position.coords.latitude, lng: position.coords.longitude },
-    map,
-    
-  });
-
-  $.ajax({
+    $.ajax({
         url: './?action=consulta2' ,
         type: 'post' ,
         dataType: 'json',
@@ -155,13 +147,30 @@ var parametros = {
             })
 
   
-          });
+         
+
+  new google.maps.Marker({
+    position:  { lat: position.coords.latitude, lng: position.coords.longitude },
+    map,
+    
+  });
+
+
+
+
+});
+
+
+ 
 
 }
 
 
 setInterval(prueba, 5000);
   
+
+
+
   directionsRenderer.setMap(map);
   document.getElementById("submit").addEventListener("click", () => {
     calculateAndDisplayRoute(directionsService, directionsRenderer);
