@@ -258,7 +258,51 @@ var total = 0;
                   <ul class="accordion-menu">
                  
                     
+                  <?php  
+                                            if($user->is_admin==1):
 
+                                        ?>
+                            
+                                              <li class="<?php if($_GET['view']=='Admin/index' ){ echo 'open active';} ?>" >
+                                                  <a href="#"><i data-feather="trending-up"></i>
+                                                        <span>Rastrear</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                                      
+                                                        <ul class="sub-menu" style="display: block;">
+
+                                                       
+                                                              <li class="<?php if($_GET['view']=='Admin/index'){ echo 'active';} ?>" ><a href="index.php?view=Admin/index">Rastrear</a></li>
+                                                          
+                           
+                                                                <!--   <li ><a href="index.php?view=calendario3">Calendario3</a></li>--> 
+                                                             <!--  <li ><a href="index.php?view=prueba">prueba</a></li> --> 
+                                                                <!--    <li ><a href="index.php?view=calendario">Calendario</a></li>--> 
+                                                        </ul>
+                                              </li>
+                                              <?php endif;?>
+
+
+                                                      <!--==============USUARIO==================-->            
+                                          <?php   $user = UserData::getById($_SESSION["user_id"]);
+                                          if($user->is_admin==1):
+
+                                          ?>
+                                          
+                                                            <li class="<?php if($_GET['view']=='User/Mci_Add_User' || $_GET['view']=='User/Mci_View_User'){ echo 'open active';} ?>">
+                                                                  <a href="#"><i data-feather="user"></i>
+                                                                      <span>Usuario</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                                                                
+                                                                        <ul class="sub-menu" style="display: block;">
+
+                                                          
+                                                                              <li class="<?php if($_GET['view']=='User/Mci_Add_User'){ echo 'active';} ?>"><a href="index.php?view=User/Mci_Add_User">Nuevo Usuario</a></li>
+                                                                              <li class="<?php if($_GET['view']=='User/Mci_View_User'){ echo 'active';} ?>"><a href="index.php?view=User/Mci_View_User">Ver Usuarios</a></li>
+                                                                              
+                                                                        </ul>
+                                                            </li>
+
+                                                            <?php endif;?>
+                                <!--==============USUARIO==================--> 
+                   
                    
                   </ul>
                </div>
@@ -385,7 +429,14 @@ var total = 0;
             <!--============main wrap====================-->
          
            
-                      <?php View::load("mapa");?>
+                      <?php  $clientes = UserData::getById($_SESSION["user_id"]); 
+                      
+                      if($clientes->is_admin==1){
+                        View::load("Admin/index");
+                        }else{
+                        View::load("mapa");  
+                        }
+                        ?>
                                                            
                       <div id="map" center ></div>    
 
