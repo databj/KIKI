@@ -37,20 +37,20 @@ if(!isset($_SESSION["user_id"])) {//SI SE CREA UNA INSTANCIA DE UNA SESION
 						$_SESSION['user_id']=$userid ;
 					//	setcookie('userid',$userid);
 					//	print $_SESSION['userid'];
-					if($userRevisar->rol!="EMPRESA"){
-						if($_SERVER["REQUEST_URI"]!="/" && $_SERVER["REQUEST_URI"]!="/mciservice2/" && $_POST["direccion"]!="/" && $_POST["direccion"]!="/mciservice2/"){
+					if($userRevisar->is_admin==1){
+						if($_SERVER["REQUEST_URI"]!="/" && $_SERVER["REQUEST_URI"]!="/KIKI/" && $_POST["direccion"]!="/" && $_POST["direccion"]!="/KIKI/"){
 
 							print "<script>window.location='".$_POST["direccion"]."';</script>";
 						
 						
 						}else{
-							print "<script>window.location='index.php?view=mapa';</script>";
+							print "<script>window.location='index.php?view=Admin/index';</script>";
 							
 						}
 						
 						
 					}else{
-						print "<script>window.location='index.php?view=Empresa/Reportes/indexlamina';</script>";
+						print "<script>window.location='index.php?view=mapa';</script>";
 					}
 
 				}else {
