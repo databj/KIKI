@@ -42,7 +42,7 @@ class UbicacionData {
 	
 
 	public static function getById($id){
-		$sql = "select * from proceso where id='".$id."'";
+		$sql = "select * from ubicacion where id='".$id."'";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new UbicacionData());
 
