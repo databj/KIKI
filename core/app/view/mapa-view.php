@@ -39,6 +39,7 @@
           </div>
 
           
+
   <script>
 
 
@@ -100,7 +101,7 @@ $(document).ready(function(){
     
       
         <br />
-        <input type="submit" id="submit" />
+        <button type="submit" id="submit" >GRAFICAR RUTA</button>
       </div>
       <div id="directions-panel"></div>
     </div>
@@ -117,16 +118,24 @@ $(document).ready(function(){
 
 function initMap() {
 
+
+  navigator.geolocation.getCurrentPosition(function(position){ 
  
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
+
+
+    const latit=position.coords.latitude;
+    const longit=position.coords.longitude;
+ 
+
 
   
   
 
     const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14,
-    center: { lat: 10.3211953, lng: -75.49271639999999 },
+    center: { lat: latit, lng: longit },
   });
 
 
@@ -182,11 +191,34 @@ setInterval(prueba, 5000);
 
     });
 
+  });
+
 }
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+
   const waypts = [];
-  
+
+
+  var tabla = $.ajax({
+        url:'./?action=rutas',
+        dataType:'text',
+        async:false
+    }).responseText;
+    //document.getElementById("divprueba2").innerHTML = tabla;
+
+ var direcciones= JSON.parse(tabla);
+for(const property in direcciones){
+ console.log(direcciones[property]);
+ waypts.push({
+        location: direcciones[property]+",cartagena de indias",
+        stopover: true,
+      });
+
+}
+
+
+  /*
   for (var i = 0; i <J; i++) {
     if(document.getElementById("auxbusc"+(i+1))){
   const checkboxArray = document.getElementById("auxbusc"+(i+1));
@@ -198,7 +230,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
       });
     }
   }
-    
+    */
   directionsService.route(
     {
       origin: document.getElementById("start").value+",cartagena de indias",
@@ -234,3 +266,26 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 
 </script>
+
+<script>
+/*
+function cargarDatos(){
+ var tabla = $.ajax({
+        url:'./?action=rutas',
+        dataType:'text',
+        async:false
+    }).responseText;
+    //document.getElementById("divprueba2").innerHTML = tabla;
+
+ var direcciones= JSON.parse(tabla);
+for(const property in direcciones){
+direcciones[property];
+}
+*/
+
+}
+
+
+</script>
+
+<div id="divprueba2">DATOS </div>
