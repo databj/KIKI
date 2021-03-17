@@ -47,6 +47,13 @@ class UbicacionData {
 		return Model::one($query[0],new UbicacionData());
 
 	}
+	public static function getByIdMensajero($id){
+		$sql = "select * from ubicacion where id_mensajero='".$id."'";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new UbicacionData());
+
+	}
+
 
 
 	public static function getAll(){

@@ -1,7 +1,7 @@
 <?php
-$ubicacion=new UbicacionData();
-$ubicacion->id=1;
-$ubicacion->id_mensajero=1;
+$clientes = UserData::getById($_SESSION["user_id"]);
+$ubicacion= UbicacionData::getByIdMensajero($clientes->is_dueno);
+
 $ubicacion->lat=$_POST["lat"];
 $ubicacion->lon=$_POST["lon"];
 $var=$ubicacion->update();

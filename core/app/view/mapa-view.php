@@ -26,7 +26,7 @@
        
         </input>
         <input type="hidden" name="auxi" id="auxi" value="" readonly="true"  required />
-
+        <input type="hidden" name="id" id="id" value="<?php $clientes = UserData::getById($_SESSION["user_id"]); echo $clientes->is_dueno;?>" readonly="true"  required />
 
           <div class="table-responsive">
             <table class="table table-bordered" id="dynamic_field">
