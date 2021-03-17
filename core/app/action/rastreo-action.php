@@ -1,5 +1,5 @@
 <?php
-$ubicacion= UbicacionData::getById(1);
+$ubicacion= UbicacionData::getAll();
 
 echo json_encode($ubicacion);
 

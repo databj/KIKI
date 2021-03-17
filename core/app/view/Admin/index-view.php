@@ -150,10 +150,9 @@ function prueba(){
             //document.getElementById("divprueba2").innerHTML = tabla;
 
         const direcciones= JSON.parse(tabla);
-     //  for(const property in direcciones){
-       // console.log( direcciones[property]);
-      //  console.log( property);
-      //  }
+      for(const property in direcciones){
+       
+        
   var latMen=parseFloat(direcciones["lat"]);
   var longMen=parseFloat(direcciones["lon"]);
 
@@ -164,7 +163,8 @@ function prueba(){
     map,
     
   });
-
+  
+      }
 
 
 
