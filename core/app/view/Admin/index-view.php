@@ -152,10 +152,14 @@ function prueba(){
         const direcciones= JSON.parse(tabla);
       for(const property in direcciones){
        
-        
-  var latMen=parseFloat(direcciones["lat"]);
-  var longMen=parseFloat(direcciones["lon"]);
+        console.log( direcciones[property]["lat"]);
+        var latMen=parseFloat(direcciones[property]["lat"]);
+        var longMen=parseFloat(direcciones[property]["lon"]);
 
+       
+        
+
+ 
   new google.maps.Marker({
     
      
@@ -163,8 +167,7 @@ function prueba(){
     map,
     
   });
-  
-      }
+}
 
 
 
