@@ -55,7 +55,7 @@ class CsvData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename." order by id desc";
+		$sql = "select * from ".self::$tablename." order by id desc limit 25";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CsvData());
 	}

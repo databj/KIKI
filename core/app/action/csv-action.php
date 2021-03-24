@@ -18,16 +18,17 @@ if (isset($_POST['enviar']))
 	while( ($data = fgetcsv($handle, 1000, ";") ) !== FALSE )
 	{
 	
-		$csv->guia=$data[0];
-		$csv->nombre=$data[1];
-		$csv->direccion=$data[2];
-        $csv->ciudad=$data[3];
-        $csv->referencia1=$data[4];
-        $csv->referencia2=$data[5];
-        $csv->guia_cliente=$data[6];
-        $csv->valor_declarado=$data[7];
+ $csv->guia=$data[0];
+ 	$csv->nombre=$data[1];
+ 	$csv->direccion=$data[2];
+  $csv->ciudad=$data[3];
+  $csv->referencia1=$data[4];
+     $csv->referencia2=$data[5];
+     $csv->guia_cliente=0;
+   $csv->valor_declarado=0;
       
         $csv->add();
+      echo "<br>";
 	
    }
 
@@ -35,4 +36,5 @@ if (isset($_POST['enviar']))
    }
 }
 
+print "<script>window.location='index.php?';</script>";
 ?>

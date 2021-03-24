@@ -3,11 +3,11 @@ $ruta=CsvData::getAll();
 $i=0;
 $arr = array();
 foreach($ruta as $ruta):
-if($ruta->ciudad=="CARTAGENA BOLÍVAR"){
+if($ruta->ciudad=="CARTAGENA"){
 
 
   
-    $arr[$i] =  $ruta->direccion;
+  $arr[$i] =  $ruta->referencia2;
     $i++;
 
 }

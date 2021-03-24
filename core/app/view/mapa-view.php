@@ -160,6 +160,7 @@ var parametros = {
 
   new google.maps.Marker({
     position:  { lat: position.coords.latitude, lng: position.coords.longitude },
+    label: "Yo",
     map,
     
   });
@@ -233,8 +234,8 @@ for(const property in direcciones){
     */
   directionsService.route(
     {
-      origin: document.getElementById("start").value+",cartagena de indias",
-      destination: document.getElementById("end").value+",cartagena de indias",
+      origin: /*document.getElementById("start").value*/"TEMPO EXPRESS"+",cartagena de indias",
+      destination: /*document.getElementById("end").value*/"TEMPO EXPRESS"+",cartagena de indias",
       waypoints: waypts,
       optimizeWaypoints: true,
       travelMode: google.maps.TravelMode.DRIVING,
@@ -250,10 +251,10 @@ for(const property in direcciones){
         for (let i = 0; i < route.legs.length; i++) {
           const routeSegment = i + 1;
           summaryPanel.innerHTML +=
-            "<b>Route Segment: " + routeSegment + "</b><br>";
-          summaryPanel.innerHTML += route.legs[i].start_address + " to ";
-          summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
-          summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+            "<b>Segmento de Ruta : " + routeSegment + "</b><br>";
+          summaryPanel.innerHTML += route.legs[i].start_address +"--> Hasta --> ";
+          summaryPanel.innerHTML += route.legs[i].end_address +"<br>";
+          summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>" ;
         }
       } else {
         window.alert("Directions request failed due to " + status);

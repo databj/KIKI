@@ -137,6 +137,26 @@ function initMap() {
     zoom: 14,
     center: { lat: latit, lng: longit },
   });
+  
+  var kmlLayer = new google.maps.KmlLayer();
+
+    var src = 'https://www.google.com/maps/d/u/2/kml?forcekml=1&mid=1SnPVlu62Df0qfHsjkX1F0txRVG89fdJ9';
+    var kmlLayer = new google.maps.KmlLayer(src, {
+    suppressInfoWindows: true,
+    preserveViewport: false,
+    zoom: 14,
+    map: map
+    });
+
+
+    kmlLayer.addListener('click', function(event) {
+
+      
+    console.log(kmlLayer);
+    console.log (event.featureData);
+    });
+
+    
 
 
 function prueba(){
@@ -160,13 +180,26 @@ function prueba(){
         
 
  
-  new google.maps.Marker({
+        const marker =   new google.maps.Marker({
     
      
-    position:  { lat: latMen, lng: longMen},
-    map,
-    
+            position:  { lat: latMen, lng: longMen},
+            map,
+            
+          });
+  
+  const infowindow = new google.maps.InfoWindow({
+    content: "Yo"+kmlLayer,
   });
+
+  marker.addListener("click", function(event) {
+    infowindow.open(map, marker);
+   
+  });
+
+
+
+  
 }
 
 
@@ -231,8 +264,8 @@ for(const property in direcciones){
     */
   directionsService.route(
     {
-      origin: document.getElementById("start").value+",cartagena de indias",
-      destination: document.getElementById("end").value+",cartagena de indias",
+      origin:"TEMPO EXPRESS"+",cartagena de indias",
+      destination: ",cartagena de indias",
       waypoints: waypts,
       optimizeWaypoints: true,
       travelMode: google.maps.TravelMode.DRIVING,
