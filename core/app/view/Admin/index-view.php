@@ -136,25 +136,31 @@ function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14,
     center: { lat: latit, lng: longit },
-  });
+    });
   
   var kmlLayer = new google.maps.KmlLayer();
 
     var src = 'https://www.google.com/maps/d/u/2/kml?forcekml=1&mid=1SnPVlu62Df0qfHsjkX1F0txRVG89fdJ9';
     var kmlLayer = new google.maps.KmlLayer(src, {
     suppressInfoWindows: true,
-    preserveViewport: false,
+    preserveViewport: true,
     zoom: 14,
     map: map
     });
-
 
     kmlLayer.addListener('click', function(event) {
 
       
     console.log(kmlLayer);
-    console.log (event.featureData);
+    console.log (event.featureData.name);
     });
+
+
+    map.addListener("center_changed", function(event)  {
+   
+  });
+
+   
 
     
 
@@ -187,15 +193,18 @@ function prueba(){
             map,
             
           });
+          
   
-  const infowindow = new google.maps.InfoWindow({
-    content: "Yo"+kmlLayer,
-  });
+          const infowindow = new google.maps.InfoWindow({
+            content: "Yo",
+          });
 
-  marker.addListener("click", function(event) {
-    infowindow.open(map, marker);
-   
-  });
+          marker.addListener("click", function(event) {
+            infowindow.open(map, marker);
+          
+          });
+
+           
 
 
 
@@ -216,8 +225,9 @@ setInterval(prueba, 5000);
 
 
   directionsRenderer.setMap(map);
+
   document.getElementById("submit").addEventListener("click", () => {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    calculateAndDisplayRoute(directionsService, directionsRenderer,map);
   });
   
  
@@ -226,7 +236,7 @@ setInterval(prueba, 5000);
 
 }
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+function calculateAndDisplayRoute(directionsService, directionsRenderer,map) {
 
   const waypts = [];
 
@@ -241,27 +251,17 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
  var direcciones= JSON.parse(tabla);
 for(const property in direcciones){
  console.log(direcciones[property]);
+
  waypts.push({
         location: direcciones[property]+",cartagena de indias",
         stopover: true,
+   
       });
 
 }
 
 
-  /*
-  for (var i = 0; i <J; i++) {
-    if(document.getElementById("auxbusc"+(i+1))){
-  const checkboxArray = document.getElementById("auxbusc"+(i+1));
 
-
-      waypts.push({
-        location: checkboxArray.value+",cartagena de indias",
-        stopover: true,
-      });
-    }
-  }
-    */
   directionsService.route(
     {
       origin:"TEMPO EXPRESS"+",cartagena de indias",
@@ -271,7 +271,10 @@ for(const property in direcciones){
       travelMode: google.maps.TravelMode.DRIVING,
     },
     (response, status) => {
+     
       if (status === "OK" && response) {
+        
+        console.log(response);
         directionsRenderer.setDirections(response);
         const route = response.routes[0];
         const summaryPanel = document.getElementById("directions-panel");
@@ -285,6 +288,28 @@ for(const property in direcciones){
           summaryPanel.innerHTML += route.legs[i].start_address + " to ";
           summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
           summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+          console.log(route.legs[i].start_location.lat());
+          console.log(route.legs[i].start_location.lng());
+
+
+
+            var latMen=parseFloat(route.legs[i].start_location.lat());
+            var longMen=parseFloat(route.legs[i].start_location.lng());
+
+          
+           /* 
+            const marker =   new google.maps.Marker({
+        
+        
+              position:  { lat: latMen, lng: longMen},
+              map,
+              
+            });
+        
+            */
+    
+           
+          
         }
       } else {
         window.alert("Directions request failed due to " + status);
@@ -314,7 +339,7 @@ direcciones[property];
 }
 */
 
-}
+
 
 
 </script>
