@@ -3,7 +3,11 @@
   <head>
     <title>Waypoints in Directions</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    
+                          
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq8e96biIxn6FnqzvEXqB4WD6d9t6lcM0&callback=initMap">
+</script>                         
+
   
   </head>
   <body>
@@ -142,7 +146,7 @@ function initMap() {
 function prueba(){
   navigator.geolocation.getCurrentPosition(function(position){ 
     console.log("Found your location nLat : "+position.coords.latitude+" nLang :"+ position.coords.longitude);
-  
+      
 var parametros = {
             "lat" : position.coords.latitude,
             "lon" : position.coords.longitude

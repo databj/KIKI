@@ -15,6 +15,7 @@ class CsvData {
 		$this->referencia2 = "";
         $this->guia_cliente = ""; 
 		$this->valor_declarado = "";
+		$this->estado="";
 		
   
 
@@ -27,6 +28,14 @@ class CsvData {
 		$sql = "insert into direcciones (guia,nombre,direccion,ciudad,referencia1,referencia2,guia_cliente,valor_declarado)";
 		$sql .= "value (\"$this->guia\",\"$this->nombre\",\"$this->direccion\",\"$this->ciudad\",\"$this->referencia1\",\"$this->referencia2\",\"$this->guia_cliente\",\"$this->valor_declarado\")";
 		return Executor::doit($sql);
+	}
+
+
+	public function update(){//METODO PARA ACTUALIZAR 
+		$sql = "update direcciones set 
+		estado='".$this->estado."'
+		where id='".$this->id."'";
+		return	Executor::doit($sql);
 	}
 
 
@@ -47,7 +56,7 @@ class CsvData {
 	
 
 	public static function getById($id){
-		$sql = "select * from proceso where id='".$id."'";
+		$sql = "select * from direcciones where id='".$id."'";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new CsvData());
 
@@ -55,7 +64,7 @@ class CsvData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename." order by id desc limit 25";
+		$sql = "select * from ".self::$tablename." order by referencia2 asc limit 10";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CsvData());
 	}

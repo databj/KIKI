@@ -30,8 +30,8 @@
           <link type="text/css" rel="stylesheet" href="assets/plugins/ionicons/css/ionicons.css">
           <link type="text/css" rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
           <link type="text/css" rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css">
-          <link type="text/css" rel="stylesheet" href="assets/plugins/chartist/chartist.css">
-          <link type="text/css" rel="stylesheet" href="assets/plugins/apex-chart/apexcharts.css">
+        <!--  <link type="text/css" rel="stylesheet" href="assets/plugins/chartist/chartist.css">-->
+         <!-- <link type="text/css" rel="stylesheet" href="assets/plugins/apex-chart/apexcharts.css">-->
           <link type="text/css" rel="stylesheet" href="assets/css/app.min.css"/>
           <link type="text/css" rel="stylesheet" href="assets/css/style.min.css"/>
           <link type="text/css" rel="stylesheet" href="assets/plugins/datatables/jquery.dataTables.min.css">
@@ -438,12 +438,8 @@ var total = 0;
                         }
                         ?>
                                                            
-                      <div id="map" center ></div>    
+                     <!-- <div id="map" center ></div>    -->
 
-                      
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6LLaX_9TI&callback=initMap">
-</script>                         
 
                                                              
                                                        
@@ -548,9 +544,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6
       <script src="assets/plugins/pace/pace.min.js"></script>  
       <script src="assets/plugins/countup/counterup.min.js"></script>		
       <script src="assets/plugins/waypoints/waypoints.min.js"></script>
-      <script src="assets/plugins/chartjs/chartjs.js"></script>
-      <script src="assets/plugins/apex-chart/apexcharts.min.js"></script>
-      <script src="assets/plugins/apex-chart/irregular-data-series.js"></script>
+    <!--  <script src="assets/plugins/chartjs/chartjs.js"></script>-->
+     <!--    <script src="assets/plugins/apex-chart/apexcharts.min.js"></script>-->
+     <!--    <script src="assets/plugins/apex-chart/irregular-data-series.js"></script>-->
       <script src="assets/plugins/simpler-sidebar/jquery.simpler-sidebar.min.js"></script>	   
       
      
@@ -573,7 +569,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6
      
  
       
-      <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+     <!-- <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>-->
       <script src="assets/js/jquery.slimscroll.min.js"></script>
       <script src="assets/js/highlight.min.js"></script>
       <script src="assets/js/app.js"></script>
@@ -607,7 +603,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbHHq3kJw1FOsPFmlzPlSN2t6
     
      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-
      <script src="assets/plugins/01.js"></script>-->
-     <script src="assets/plugins/toastr/toastr.min.js"></script>
+    <!---  <script src="assets/plugins/toastr/toastr.min.js"></script>-->
 
      
     <!--==============FOOTER SCRIPT=================-->
